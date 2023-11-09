@@ -1,42 +1,9 @@
 ﻿
 @{
     ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-
-    <title>Hirevac</title>
-
-
-    <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
-    <!-- fonts style -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
-
-    <!-- font awesome style -->
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <!-- nice select -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
-
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet" />
-    <!-- responsive style -->
-    <link href="css/responsive.css" rel="stylesheet" />
-
-</head>
 
 <body class="sub_page">
 
@@ -45,7 +12,7 @@
         <header class="header_section">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.cshtml">
                         <span>
                             Hirevac
                         </span>
@@ -59,16 +26,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav  ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" href="index.cshtml">Home</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="about.html"> About</a>
+                                <a class="nav-link" href="about.cshtml"> About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="job.html">Jobs</a>
+                                <a class="nav-link" href="job.cshtml">Jobs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="freelancer.html">Freelancers</a>
+                                <a class="nav-link" href="freelancer.cshtml">Freelancers</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
@@ -124,7 +91,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="img-box">
-                        <img src="images/about-img.jpg" alt="">
+                        <img src="~/images/about-img.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -142,22 +109,22 @@
                     </h4>
                     <ul>
                         <li>
-                            <a href="index.html">
+                            <a href="index.cshtml">
                                 Home
                             </a>
                         </li>
                         <li class="active">
-                            <a href="about.html">
+                            <a href="about.cshtml">
                                 About
                             </a>
                         </li>
                         <li>
-                            <a href="job.html">
+                            <a href="job.cshtml">
                                 Jobs
                             </a>
                         </li>
                         <li>
-                            <a href="freelancer.html">
+                            <a href="freelancer.cshtml">
                                 Freelancers
                             </a>
                         </li>
@@ -229,14 +196,14 @@
     </footer>
     <!-- footer section -->
     <!-- jQery -->
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="~/js/jquery-3.4.1.min.js"></script>
     <!-- bootstrap js -->
-    <script src="js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.js"></script>
     <!-- nice select -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
     <!-- custom js -->
-    <script src="js/custom.js"></script>
+    <script src="~/js/custom.js"></script>
 
 </body>
 
-</html>
+
