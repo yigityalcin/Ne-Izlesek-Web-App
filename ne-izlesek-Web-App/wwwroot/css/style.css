@@ -89,7 +89,7 @@ a:focus {
 /*header section*/
 .hero_area {
     position: relative;
-    height: 100vh;
+    height: 150vh;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -111,14 +111,27 @@ a:focus {
 .sub_page .hero_area {
   height: auto;
 }
-
-.header_section {
-  padding: 15px 0;
+.index_area {
+    position: relative;
+    height: 90vh;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
+.header_section {
+/*  padding: 15px 0;
+*/}
+
 .navbar-brand img{
-  margin: 0;
-  margin-left: 50px;
+  margin-left: 65px;
 }
 
 
@@ -128,9 +141,17 @@ a:focus {
   color: rgba(178, 16, 32, 0.9);
 }*/
 
+/*.custom_nav-container {
+    background-image: url('../images/rows-red-seats-theater.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+}*/
 .custom_nav-container {
-  padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+    padding:15px;
 }
+
+
 
 .custom_nav-container .navbar-nav {
   -webkit-box-align: center;
@@ -961,7 +982,7 @@ a:focus {
 
 /* blog section end */
 .info_section {
-  background-color: #030d47;
+  background-color: rgba(0, 0, 0, 1);
   color: #ffffff;
   padding: 65px 0 45px 0;
 }
@@ -1062,7 +1083,7 @@ a:focus {
   background-color: #ffffff;
   border-radius: 100%;
   margin: 0 5px;
-  color: #1a1c78;
+  color: #b61522;
   font-size: 16px;
 }
 
@@ -1073,7 +1094,7 @@ a:focus {
 /* footer section*/
 .footer_section {
   position: relative;
-  background-color: #030d47;
+  background-color: black;
   text-align: center;
 }
 
@@ -1088,3 +1109,4 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
