@@ -56,27 +56,29 @@
                                     <a class="nav-link" href="/Home/About"> Kategoriler</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="job.cshtml">Filmler</a>
+                                    <a class="nav-link" href="/Home/Movies">Filmler</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="freelancer.cshtml">Diziler</a>
+                                    <a class="nav-link" href="/Home/Series">Diziler</a>
+                                </li>
+
+                                @* login sign up li formlari *@
+                                @* <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>
+                                Login
+                                </span>
+                                </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                        <span>
-                                            Login
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                        <span>
-                                            Sign Up
-                                        </span>
-                                    </a>
-                                </li>
+                                <a class="nav-link" href="#">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>
+                                Sign Up
+                                </span>
+                                </a>
+                                </li> *@
                                 <form class="form-inline">
                                     <button class="btn   nav_search-btn" type="submit">
                                         <i class="fa fa-search" aria-hidden="true"></i>
@@ -88,6 +90,86 @@
                 </div>
             </header>
             @RenderBody()
+            <!-- category section -->
+            <section class="category_section">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+                            <a href="#" class="box">
+                                <div class="img-box">
+                                    <img src="~/images/cinema.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Film
+                                    </h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+                            <a href="#" class="box">
+                                <div class="img-box">
+                                    <img src="~/images/cinema1.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Cinema
+                                    </h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+                            <a href="#" class="box">
+                                <div class="img-box">
+                                    <img src="~/images/cinema2.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        TV Series
+                                    </h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+                            <a href="#" class="box">
+                                <div class="img-box">
+                                    <img src="~/images/cinema3.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        IMDB
+                                    </h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+                            <a href="#" class="box">
+                                <div class="img-box">
+                                    <img src="~/images/cinema4.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Reviews
+                                    </h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-2 px-0">
+                            <a href="#" class="box">
+                                <div class="img-box">
+                                    <img src="~/images/cinema5.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Top Picks
+                                    </h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- end category section -->
         </main>
         <!-- end expert section -->
         <!-- info section -->
@@ -110,13 +192,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="" href="job.html">
-                                    Jobs
+                                <a class="" href="/Home/Movies">
+                                    Movies
                                 </a>
                             </li>
                             <li>
-                                <a class="" href="freelancer.html">
-                                    Freelancers
+                                <a class="" href="/Home/Series">
+                                    Series
                                 </a>
                             </li>
                         </ul>
@@ -126,8 +208,8 @@
                             Jobs
                         </h4>
                         <p>
-                            Established fact that a reader will be distracted by the readable content of a page when looking at its
-                            layout. The point of using Lorem Ipsum
+                            Sinemanın büyülü dünyasına hoş geldiniz. En yeni filmleri, dizileri keşfedin, unutulmaz anları yakalayın.
+                            Sitemizdeki içerikle ilgili herhangi bir soru için bize ulaşmaktan çekinmeyin. İyi seyirler!
                         </p>
                     </div>
                     <div class="col-md-3">
@@ -137,14 +219,14 @@
                             </h4>
                             <div class="social_container">
                                 <div>
-                                    <a href="https://www.github.com/yigityalcin" target="_blank" > 
+                                    <a href="https://www.github.com/yigityalcin" target="_blank">
                                         <i class="fa fa-github" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 @* <div>
-                                    <a href="https://www.x.com/yigityalcin" target="_blank" >
-                                        <i class="fa-brands fa-x-twitter"></i>
-                                    </a>
+                                <a href="https://www.x.com/yigityalcin" target="_blank" >
+                                <i class="fa-brands fa-x-twitter"></i>
+                                </a>
                                 </div> *@
                                 <div>
                                     <a href="https://www.linkedin.com/in/yigityalciin" target="_blank">
