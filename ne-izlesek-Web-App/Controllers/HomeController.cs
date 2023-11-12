@@ -1,11 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ne_izlesek_Web_App.Models;
+using ne_izlesek_Web_App.Models.Context;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Hosting;
+using ne_izlesek_Web_App.Models.Entities;
+using ne_izlesek_Web_App.Models.MoviesModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace ne_izlesek_Web_App.Controllers
 {
     public class HomeController : Controller
     {
+        AppDbContext db = new AppDbContext();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -21,9 +32,30 @@ namespace ne_izlesek_Web_App.Controllers
         {
             return View();
         }
-        public IActionResult Movies()
+
+        public IActionResult Movies(int? page)
+        {       
+
+            var model = new MovieIndexViewModel
+            {
+                Filmler = db.Filmler.OrderByDescending(f => f.MovieRating)                                  
+                                      .ToList(),
+                Film = new Film(), // Eğer bu kısım gerekiyorsa, yeni bir film eklemek için kullanılabilir.
+            };
+
+            return View(model);
+        }
+        public IActionResult Series()
         {
-            return View();
+
+            var model = new SerieIndexViewModel
+            {
+                Diziler = db.Diziler.OrderByDescending(f => f.SerieRating)
+                                      .ToList(),
+                Dizi = new Dizi(), // Eğer bu kısım gerekiyorsa, yeni bir film eklemek için kullanılabilir.
+            };
+
+            return View(model);
         }
 
 

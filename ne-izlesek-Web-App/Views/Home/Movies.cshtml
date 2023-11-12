@@ -1,64 +1,36 @@
-﻿@* @{
+﻿@model ne_izlesek_Web_App.Models.MoviesModel.MovieIndexViewModel
+
+@{
     ViewData["Title"] = "Movies";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <body class="sub_page">
-    <!-- ... (diğer HTML kodları) ... -->
-
     <section class="movies_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
-                <h2>
-                    MOVIES
-                </h2>
-                <p>
-                    Explore our collection of movies.
-                </p>
+                <h2>MOVIES</h2>
+                <p>Explore our collection of movies.</p>
             </div>
             <div class="row">
-                @foreach (var movies in Model.Movies)
+                @foreach (var film in Model.Filmler)
                 {
-                    <div class="col-md-6 col-lg-4 mx-auto">
-                        <div class="box">
-                            <div class="img-box">
-                                <img src="~/images/e1.jpg" alt="@movies">
-                            </div>
-                            <div class="detail-box">
-                                <a href="@Url.Action("Details", "Movie", new { id = movies.Id })">
-                                    @movies.NameOfMovie
-                                </a>
-                                <h6>
-                                    <span>
-                                        Year: @movies.YearOfRelease
-                                    </span>
-                                    <span>
-                                        Watchtime: @movies.Watchtime
-                                    </span>
-                                    <span class="movie_rating">
-                                        Rating: @movies.MovieRating
-                                    </span>
-                                    <span>
-                                        Votes: @movies.Votes
-                                    </span>
-                                    <span>
-                                        MetaScore: @movies.Metascore
-                                    </span>
-                                    <span>
-                                        Gross Collection: @movies.GrossCollection
-                                    </span>
-
-                                    <span>
-                                        Director: @movies.Director
-                                    </span>
-                                </h6>
-
-                                <p>
-                                    @movies.Description
-                                </p>
-                                <p>
-                                    @movies.Stars
-                                </p>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0 shadow">
+                            <img src="~/images/godfather.jpg" class="card-img-top" alt="@film.NameOfMovie">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="@Url.Action("Details", "Movie", new { id = film.Id })">@film.NameOfMovie</a></h5>
+                                <ul class="list-unstyled">
+                                    <li><strong>Year:</strong> @film.YearOfRelease</li>
+                                    <li><strong>Watchtime:</strong> @film.Watchtime</li>
+                                    <li class="movie_rating"><strong>Rating:</strong> @film.MovieRating</li>
+                                    <li><strong>Genre:</strong> @film.Genre</li>
+                                    <li><strong>Votes:</strong> @film.Votes</li>
+                                    <li><strong>MetaScore:</strong> @film.Metascore</li>
+                                    <li><strong>Gross Collection:</strong> @film.GrossCollection</li>
+                                    <li><strong>Director:</strong> @film.Director</li>
+                                </ul>
+                                <p class="card-text">@film.Description</p>
                             </div>
                         </div>
                     </div>
@@ -67,4 +39,3 @@
         </div>
     </section>
 </body>
- *@
