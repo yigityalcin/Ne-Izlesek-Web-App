@@ -989,16 +989,16 @@ a:focus {
 .info_section {
   background-color: rgba(0, 0, 0, 1);
   color: #ffffff;
-  padding: 65px 0 45px 0;
+  padding: 55px 0 35px 0;
 }
 
 .info_section h4 {
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .info_section .info_links ul {
-  padding-left: 15px;
+  padding-left: 20px;
 }
 
 .info_section .info_links ul .active::before {
