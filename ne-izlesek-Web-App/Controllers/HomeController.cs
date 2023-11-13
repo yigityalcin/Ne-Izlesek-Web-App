@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using System.Drawing.Printing;
 
 namespace ne_izlesek_Web_App.Controllers
 {
@@ -34,17 +35,35 @@ namespace ne_izlesek_Web_App.Controllers
         }
 
         public IActionResult Movies(int? page)
-        {       
-
+        {
+            int pageSize = 9;
+            int pageNumber = page ?? 1;
             var model = new MovieIndexViewModel
             {
-                Filmler = db.Filmler.OrderByDescending(f => f.MovieRating)                                  
-                                      .ToList(),
-                Film = new Film(), // Eğer bu kısım gerekiyorsa, yeni bir film eklemek için kullanılabilir.
-            };
 
+
+
+                Filmler = db.Filmler.OrderByDescending(f => f.MovieRating)
+                                  .Skip((pageNumber - 1) * pageSize)
+                                  .Take(pageSize)
+                                  .ToList(),
+                Film = new Film(),
+                PageSize = pageSize,
+                TotalRecords = db.Filmler.Count()
+            };
             return View(model);
+            
+            //var model = new MovieIndexViewModel
+            //{
+            //    Filmler = db.Filmler.OrderByDescending(f => f.MovieRating)                                  
+            //                          .ToList(),
+            //    Film = new Film(), // Eğer bu kısım gerekiyorsa, yeni bir film eklemek için kullanılabilir.
+            //};
+
+            //return View(model);
         }
+
+
         public IActionResult Series()
         {
 

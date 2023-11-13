@@ -108,7 +108,9 @@ a:focus {
     background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(../images/rows-red-seats-theater.jpg);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(../images/rows-red-seats-theater.jpg);
     background-size: cover;
+    background-attachment: fixed; /* Bu satýr eklenen satýr */
 }
+
 
 .sub_page .hero_area {
   height: auto;
@@ -1113,3 +1115,37 @@ a:focus {
 }
 /*# sourceMappingURL=style.css.map */
 
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+.card-img-top {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.card-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+    .card-title a:hover {
+        color: #0066cc;
+    }
+
+.list-unstyled li {
+    margin-bottom: 8px;
+}
+
+.card-text {
+    color: #666;
+}
