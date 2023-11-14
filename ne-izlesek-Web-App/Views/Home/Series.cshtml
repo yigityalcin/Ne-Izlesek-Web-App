@@ -9,14 +9,14 @@
     <section class="movies_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
-                <h2>SERIES</h2>
-                <p>Explore our collection of Series.</p>
+                <h2>DİZİLER</h2>
+                @* <p>Explore our collection of Series.</p> *@
             </div>
             <div class="row">
                 @foreach (var dizi in Model.Diziler)
                 {
                     <div class="col-md-4 mb-4">
-                        <div class="card h-100 border-0 shadow">
+                        <div class="card h-100 border-1 shadow mr-3 mb-3">
                             <img src="~/images/godfather.jpg" class="card-img-top" alt="@dizi.NameOfSerie">
                             <div class="card-body">
                                 <h5 class="card-title"><a href="@Url.Action("Details", "Serie", new { id = dizi.Id })">@dizi.NameOfSerie</a></h5>

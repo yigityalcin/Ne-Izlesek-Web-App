@@ -567,6 +567,7 @@ a:focus {
   -o-transition: all .3s;
   -moz-transition: all .3s;
   transition: all .3s;
+  margin-top:100px;
 }
 
 .category_section .box .img-box {
@@ -1071,8 +1072,8 @@ a:focus {
 }
 
 .info_section .info_social .social_container a {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -1088,7 +1089,7 @@ a:focus {
   background-color: #ffffff;
   border-radius: 100%;
   margin: 0 5px;
-  color: #b61522;
+  color: black;
   font-size: 16px;
 }
 
@@ -1115,21 +1116,22 @@ a:focus {
 }
 /*# sourceMappingURL=style.css.map */
 
+/*film kartlarý animasyonu*/
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-    .card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 .card-img-top {
     transition: transform 0.3s ease;
 }
 
 .card:hover .card-img-top {
-    transform: scale(1.1);
+    transform: scale(1.06);
 }
 
 .card-title a {
@@ -1138,9 +1140,9 @@ a:focus {
     transition: color 0.3s ease;
 }
 
-    .card-title a:hover {
-        color: #0066cc;
-    }
+.card-title a:hover {
+    color: #0066cc;
+}
 
 .list-unstyled li {
     margin-bottom: 8px;
@@ -1148,4 +1150,199 @@ a:focus {
 
 .card-text {
     color: #666;
+}
+/*oto foto ayarý
+*/
+.card-img-top {
+    width: 100%; /* Görüntü geniþliðini %100 olarak ayarla */
+    height: auto; /* Otomatik yükseklik hesapla */
+    object-fit: cover; /* Görüntünün boyutunu korurken, içeriðin tamamýný görüntüle */
+}
+
+
+
+/* Popup Stili */
+    .custom-modal-content {
+        background-color: #101010;
+        color: #ecf0f1;
+    }
+
+    .custom-modal-body {
+        padding: 10px;
+    }
+
+    .film-poster-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .film-poster {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .custom-list {
+        list-style: none;
+        padding: 10px;
+    }
+
+        .custom-list li {
+            margin-bottom: 10px;
+        }
+
+    /* Modalýn dýþýndaki arkaplan */
+    .modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.5); /* 0.5 opaklýk siyah */
+    }
+
+    /* Modal Ýçeriði ve Kart için Genel Stiller */
+    .custom-modal-content,
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    /* Kapatma Düðmesi */
+    .close {
+        color: #ecf0f1;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+        .close:hover {
+            color: #e74c3c;
+        }
+
+    /* Animasyon Stili */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Modal Ýçeriði Özel Stiller */
+    .custom-modal-content {
+        background: linear-gradient(to right, #ad0311, #2c0000);
+        color: #ecf0f1;
+        position: relative; /* Gerekirse, modal içeriðinin pozisyonunu ayarlayýn */
+    }
+
+    .custom-modal-body {
+        padding: 20px;
+    }
+
+    .film-poster-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .film-poster {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .custom-list {
+        list-style: none;
+        margin-left: 20px;
+        padding: 0;
+    }
+
+    /* Baþlýk Stil Ayarlarý */
+    .modal-title {
+        text-align: center;
+        margin-left: 10px;
+        font-size: 36px;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .custom-list li {
+        margin-bottom: 10px;
+
+    }
+
+
+/*PAGINATION*/
+#paginationContainer {
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    color: #ebb257; /* Altýn sarýsý rengi */
+    text-decoration: none;
+    background-color: #8F0909; /* Bordo arka plan rengi */
+    padding: 8px 12px;
+    border: 1px solid #ebb257; /* Altýn sarýsý border */
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+    .page-link:hover {
+        background-color: #2c0000; /* Hafifçe daha koyu bordo hover rengi */
+        color: #ebb257; /* Sayý rengini belirtilen altýn sarýsý olarak ayarladýk */
+    }
+
+.page-item.active .page-link {
+    background-color: #ebb257;
+    border: 1px solid #ebb257;
+    color: #2c0000;
+}
+
+.page-item.disabled .page-link {
+    color: #ebb257; /* Gri renk disabled durumu için */
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.pagination-previous,
+.pagination-next {
+    margin: 0 5px;
+}
+
+.pagination-previous,
+.pagination-next,
+.page-link {
+    display: flex;
+    align-items: center;
+}
+
+    .pagination-previous::before,
+    .pagination-next::before {
+        font-size: 20px;
+        margin-right: 5px;
+    }
+
+    .pagination-next::before {
+        margin-left: 5px;
+    }
+
+.page-ellipsis {
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    cursor: default;
+    color: #95a5a6; /* Gri renk ellipsis için */
 }
