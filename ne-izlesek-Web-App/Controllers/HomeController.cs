@@ -36,6 +36,7 @@ namespace ne_izlesek_Web_App.Controllers
 
         public IActionResult Movies(int? page)
         {
+
             int pageSize = 9;
             int pageNumber = page ?? 1;
             var model = new MovieIndexViewModel
@@ -49,7 +50,9 @@ namespace ne_izlesek_Web_App.Controllers
                                   .ToList(),
                 Film = new Film(),
                 PageSize = pageSize,
-                TotalRecords = db.Filmler.Count()
+                TotalRecords = db.Filmler.Count(),
+                CurrentPage = pageNumber  // Set the CurrentPage property
+
             };
             return View(model);
             
@@ -64,16 +67,26 @@ namespace ne_izlesek_Web_App.Controllers
         }
 
 
-        public IActionResult Series()
+        public IActionResult Series(int? page)
         {
 
+            int pageSize = 9;
+            int pageNumber = page ?? 1;
             var model = new SerieIndexViewModel
             {
-                Diziler = db.Diziler.OrderByDescending(f => f.SerieRating)
-                                      .ToList(),
-                Dizi = new Dizi(), // Eğer bu kısım gerekiyorsa, yeni bir film eklemek için kullanılabilir.
-            };
 
+
+
+                Diziler = db.Diziler.OrderByDescending(f => f.SerieRating)
+                                  .Skip((pageNumber - 1) * pageSize)
+                                  .Take(pageSize)
+                                  .ToList(),
+                Dizi = new Dizi(),
+                PageSize = pageSize,
+                TotalRecords = db.Diziler.Count(),
+                CurrentPage = pageNumber  // Set the CurrentPage property
+
+            };
             return View(model);
         }
 

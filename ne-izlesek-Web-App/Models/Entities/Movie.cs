@@ -21,13 +21,13 @@ namespace ne_izlesek_Web_App.Models.Entities
         [Required]
         public string YearOfRelease { get; set; }
 
-        public string Watchtime { get; set; }
+        public double Watchtime { get; set; }
 
         [Required]
         public string Genre {  get; set; }
 
         [Required]
-        public string MovieRating { get; set; }
+        public double MovieRating { get; set; }
 
         public string Metascore { get; set; }
 
@@ -42,6 +42,8 @@ namespace ne_izlesek_Web_App.Models.Entities
         public string Director { get; set; }
 
         public List<string> Star { get; set; } = new List<string>();
+        public string PhotoPath { get; set; }
+
 
         // Diğer özellikleri buraya ekleyin
     }

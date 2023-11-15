@@ -32,7 +32,8 @@ body {
 }
 
 .heading_container {
-  color:white;
+  color:#ecf0f1;
+  font-family:cursive;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -47,6 +48,7 @@ body {
      -moz-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+margin-bottom:34px;
 
 }
 
@@ -561,7 +563,7 @@ a:focus {
       -ms-flex-align: center;
           align-items: center;
   padding: 35px 15px;
-  background-color: #8F0909;
+  background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff;
   -webkit-transition: all .3s;
   -o-transition: all .3s;
@@ -602,7 +604,7 @@ a:focus {
 }
 
 .category_section .box:hover {
-  background-color: #b61522;
+  background-color: #650109;
 }
 
 .about_section .row {
@@ -1128,6 +1130,7 @@ a:focus {
 
 .card-img-top {
     transition: transform 0.3s ease;
+
 }
 
 .card:hover .card-img-top {
@@ -1158,6 +1161,7 @@ a:focus {
     height: auto; /* Otomatik yükseklik hesapla */
     object-fit: cover; /* Görüntünün boyutunu korurken, içeriðin tamamýný görüntüle */
 }
+
 
 
 
