@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using System.Drawing.Printing;
+using RestSharp;
+using System.Text.Json;
 
 namespace ne_izlesek_Web_App.Controllers
 {
@@ -34,28 +36,30 @@ namespace ne_izlesek_Web_App.Controllers
             return View();
         }
 
-        public IActionResult Movies(int? page)
+        public async Task<IActionResult> MoviesAsync(int? page)
         {
 
             int pageSize = 9;
             int pageNumber = page ?? 1;
-            var model = new MovieIndexViewModel
-            {
+            //var model = new MovieIndexViewModel
+            //{
 
 
 
-                Filmler = db.Filmler.OrderByDescending(f => f.MovieRating)
-                                  .Skip((pageNumber - 1) * pageSize)
-                                  .Take(pageSize)
-                                  .ToList(),
-                Film = new Film(),
-                PageSize = pageSize,
-                TotalRecords = db.Filmler.Count(),
-                CurrentPage = pageNumber  // Set the CurrentPage property
+            //    Filmler = db.Filmler.OrderByDescending(f => f.MovieRating)
+            //                      .Skip((pageNumber - 1) * pageSize)
+            //                      .Take(pageSize)
+            //                      .ToList(),
+            //    Film = new Film(),
+            //    PageSize = pageSize,
+            //    TotalRecords = db.Filmler.Count(),
+            //    CurrentPage = pageNumber  // Set the CurrentPage property
 
-            };
+            //};
+            var model = await GetMovieService(pageNumber);
+
             return View(model);
-            
+
             //var model = new MovieIndexViewModel
             //{
             //    Filmler = db.Filmler.OrderByDescending(f => f.MovieRating)                                  
@@ -66,6 +70,62 @@ namespace ne_izlesek_Web_App.Controllers
             //return View(model);
         }
 
+        private async Task<MovieIndexViewModel> GetMovieService(int? page)
+        {
+            var apiKey = "d821552a352a5b41a205909d81ec8df7"; // The Movie Database API key
+            var apiUrl = $"https://api.themoviedb.org/3/discover/movie?api_key={apiKey}&include_adult=false&include_video=false&language=en-US&page={page}&sort_by=popularity.desc";
+
+            var options = new RestClientOptions(apiUrl);
+            var client = new RestClient(options);
+            var request = new RestRequest("");
+            request.AddHeader("accept", "application/json");
+
+            var response = await client.GetAsync(request);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                // JSON verisini deserialize etme
+                MovieApiResponse movieApiResponse = new MovieApiResponse { };
+                movieApiResponse = JsonSerializer.Deserialize<MovieApiResponse>(response.Content);
+
+                // Film listesine erişme
+                List<ApiMovie>? results = movieApiResponse?.Results;
+                List<ApiMovie> films = results;
+
+                // Films listesini kullanma
+                if (films != null)
+                {
+                    var model = new MovieIndexViewModel
+                    {
+                        Movies = films,
+                        PageSize = movieApiResponse.TotalPages,
+                        TotalRecords = movieApiResponse.TotalResults,
+                        CurrentPage = movieApiResponse.Page,
+                        TotalPages = Math.Min(500,movieApiResponse.TotalPages),   
+                        
+                    };
+
+                    foreach (var film in films)
+                    {
+                        film.ReleaseDate = DateTime.Parse(film.ReleaseDate).ToString("yyyy-MM-dd");
+                        Console.WriteLine($"Film Title: {film.Adult}, Release Date: {film.ReleaseDate}");
+                    }
+
+                    return model;
+                }
+                else
+                {
+                    Console.WriteLine("API yanıtı geçerli bir film listesi içermiyordu.");
+                    return new MovieIndexViewModel();
+                }
+            }
+            else
+            {
+                Console.WriteLine($"API request failed with status code: {response.StatusCode}");
+                return new MovieIndexViewModel(); // Burada bir değer döndürmeyi ekledik
+            }
+        }
+    
 
         public IActionResult Series(int? page)
         {
@@ -89,7 +149,6 @@ namespace ne_izlesek_Web_App.Controllers
             };
             return View(model);
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
