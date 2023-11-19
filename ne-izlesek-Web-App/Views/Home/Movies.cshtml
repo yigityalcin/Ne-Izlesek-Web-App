@@ -18,7 +18,7 @@
                 {
                     <div class="col-md-4 mb-4">
                         <div class="card h-100 border-0 shadow mr-3 mb-3">
-                            <img src="https://image.tmdb.org/t/p/original/@film.PosterPath" class="card-img-top" alt="@film.Title">
+                            <img src="https://image.tmdb.org/t/p/w500/@film.PosterPath" class="card-img-top" alt="@film.Title">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <a href="#" class="open-modal" data-id="@film.Id">@film.Title</a>
@@ -28,7 +28,7 @@
                                     <li><strong>Duration:</strong> @film.Overview min</li>
                                     <li class="movie_rating"><strong>IMDB:</strong> @film.VoteAverage</li>
                                     <li><strong>Genre:</strong> @film.GenreIds</li>
-                                    <li><strong>Photo:</strong> <img src="@film.BackdropPath" alt="Director Image" class="img-fluid"></li>
+                                    <li><strong>Photo:</strong> <img src="@film.Popularity"></li>
                                 </ul>
                                 <button class="btn btn-secondary btn-sm btn-open-details" data-id="@film.Id">Details</button>
                             </div>
@@ -46,7 +46,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-lg-6 text-center">
                                             <div class="film-poster-container">
-                                                <img src="https://image.tmdb.org/t/p/w185/{{@film.PosterPath}}" class="card-img-top" alt="@film.Title">
+                                                <img src="https://image.tmdb.org/t/p/w500/@film.PosterPath" class="card-img-top" alt="@film.Title">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-lg-6">

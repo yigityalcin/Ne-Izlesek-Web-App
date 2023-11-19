@@ -101,7 +101,7 @@ namespace ne_izlesek_Web_App.Controllers
                         PageSize = movieApiResponse.TotalPages,
                         TotalRecords = movieApiResponse.TotalResults,
                         CurrentPage = movieApiResponse.Page,
-                        TotalPages = Math.Min(500,movieApiResponse.TotalPages),   
+                        TotalPages = movieApiResponse.TotalPages,
                         
                     };
 
